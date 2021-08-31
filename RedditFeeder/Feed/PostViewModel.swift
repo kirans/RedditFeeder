@@ -25,6 +25,7 @@ class PostViewModel {
         self.loadImage()
     }
     
+    /// download thumnail image
     func loadImage() {
         cancellable = api.download(url: post.thumbnail).sink { completion in
             switch completion {

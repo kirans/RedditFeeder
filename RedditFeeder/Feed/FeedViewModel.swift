@@ -24,6 +24,8 @@ class FeedViewModel {
         self.load()
     }
     
+    /// load listing
+    
     private func load() {
         guard !isLoading else {
             return
@@ -43,6 +45,7 @@ class FeedViewModel {
         }
     }
     
+    /// load after posts
     func loadNext() {
         guard !isLoading else {
             return

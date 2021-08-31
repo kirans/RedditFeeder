@@ -32,10 +32,12 @@ class FeedViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    ///load subviews
     func subviews() {
         view.addSubview(self.tableView)
     }
 
+    /// add constraints
     func constraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
