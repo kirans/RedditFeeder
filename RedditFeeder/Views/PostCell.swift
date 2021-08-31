@@ -63,12 +63,14 @@ class PostCell: UITableViewCell {
             listPostView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
     }
+    
 }
 
 extension PostCell: PostViewModelDelegate {
     func reload() {
         postView?.headerLabel.text = self.viewModel?.post.title ?? viewModel?.post.subredditNamePrefixed
-        print("Title... \(self.viewModel?.post.title ?? "")")
+        postView?.commentLabel.text = self.viewModel?.commentCount
+        postView?.scoreLabel.text = self.viewModel?.score
         if let image = viewModel?.feedImage {
             DispatchQueue.main.async {
                 self.postView?.setCustomImage(image: image)

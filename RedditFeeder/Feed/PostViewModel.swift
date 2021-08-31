@@ -42,4 +42,13 @@ class PostViewModel {
             }
         }
     }
+    
+    var commentCount:String  {
+        return "Comment: " + (String(self.post.commentCount ?? 0))
+    }
+
+    var score: String {
+        return "Score: " + String(self.post.score ?? 0)
+    }
+
 }

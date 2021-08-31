@@ -15,6 +15,8 @@ struct Post: Identifiable {
     var subredditNamePrefixed: String
     var thumbnail: String
     var after: String?
+    var commentCount: Int?
+    var score: Int?
     
     mutating func setAfter(_ after: String) {
         self.after = after
@@ -30,6 +32,8 @@ extension Post: Decodable {
         case author
         case url
         case thumbnail
+        case commentCount = "num_comments"
+        case score
         case subredditNamePrefixed = "subreddit_name_prefixed"
         
         case data
@@ -47,5 +51,7 @@ extension Post: Decodable {
         url = try dataContainer.decode(String.self, forKey: .url)
         thumbnail = try dataContainer.decode(String.self, forKey: .thumbnail)
         subredditNamePrefixed = try dataContainer.decode(String.self, forKey: .subredditNamePrefixed)
+        commentCount = try? dataContainer.decodeIfPresent(Int.self, forKey: .commentCount)
+        score = try? dataContainer.decodeIfPresent(Int.self, forKey: .score)
     }
 }
