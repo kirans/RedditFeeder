@@ -64,7 +64,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastIndex = self.viewModel.posts.count - 1
+        let lastIndex = self.viewModel.posts.count - 2
         if indexPath.row == lastIndex {
             viewModel.loadNext()
         }
@@ -77,18 +77,4 @@ extension FeedViewController: FeedViewModelDelegate {
             self.tableView.reloadData()
         }
     }
-
-}
-
-extension FeedViewController: UIScrollViewDelegate {
-    
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        let currentOffset = scrollView.contentOffset.y
-//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-//         if (maximumOffset - currentOffset <= 20.0) {
-//            self.viewModel.loadNext()
-//         }
-//
-//    }
-    
 }
